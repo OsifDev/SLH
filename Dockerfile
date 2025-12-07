@@ -1,8 +1,7 @@
-﻿# SLH Dockerfile
+﻿# Dockerfile for SLH
 FROM node:20-slim
 WORKDIR /app
-COPY backend/package.json backend/package-lock.json* ./backend/
-WORKDIR /app/backend
-RUN npm ci --omit=dev
-COPY backend/ .
-CMD [""node"", ""src/index.js""]
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev
+COPY . .
+CMD [""node"", ""backend/src/index.js""]
