@@ -41,3 +41,4 @@ FRONTEND_PID=\$!
 cd ..
 echo "? Waiting for backend and frontend processes..."
 wait \ \
+
