@@ -1,4 +1,5 @@
 ﻿#!/bin/sh
 cd backend
-npm install
-node src/index.js
+node src/index.js &
+cd ../web
+vite

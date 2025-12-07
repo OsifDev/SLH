@@ -1,6 +1,15 @@
 ﻿FROM node:20-slim
+
 WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm install --omit=dev
+
+COPY backend/package.json backend/package-lock.json* ./backend/
+COPY web/package.json web/package-lock.json* ./web/
+
+RUN cd backend && npm install --omit=dev
+RUN cd web && npm install --omit=dev
+
 COPY . .
-CMD [""node"", ""backend/src/index.js""]
+
+EXPOSE 3000 5173
+
+CMD sh start.sh
