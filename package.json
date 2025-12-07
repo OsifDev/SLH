@@ -1,0 +1,10 @@
+﻿{
+  "name": "slh-full",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "sh start.sh",
+    "start-backend": "node backend/src/index.js",
+    "start-web": "vite --cwd web"
+  }
+}
