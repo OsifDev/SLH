@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "?? Checking backend..."
+echo "?? Starting backend..."
 if [ ! -d "backend" ]; then
   echo "? Backend folder not found!"
   exit 1
@@ -21,12 +21,13 @@ fi
 echo "?? Installing backend dependencies..."
 npm install
 
-echo "?? Starting backend..."
+echo "?? Running backend..."
 node src/index.js &
 BACKEND_PID=\$!
+
 cd ..
 
-echo "?? Checking web frontend..."
+echo "?? Starting frontend..."
 if [ ! -d "web" ]; then
   echo "? Web folder not found!"
   exit 1
@@ -36,6 +37,7 @@ npm install
 npm run build
 npm run preview &
 FRONTEND_PID=\$!
-cd ..
 
+cd ..
+echo "? Waiting for backend and frontend processes..."
 wait \ \
